@@ -7,7 +7,7 @@ series: noble
 class: preinstalled
 kernel: linux-eswin
 gadget:
-  url: "https://github.com/xypron/risc-v-gadget.git"
+  url: "https://git.launchpad.net/~sifive-sandbox/+git/risc-v-gadget"
   type: "git"
   branch: "p550"
 rootfs:
