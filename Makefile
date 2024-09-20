@@ -44,5 +44,5 @@ image:
 	sudo ubuntu-image classic image-definition.yaml
 
 image-debug:
-	sudo rm -rf /tmp/workdir
-	sudo ubuntu-image --workdir /tmp/workdir --debug classic image-definition.yaml
+	sudo rm -rf workdir
+	sudo ubuntu-image --workdir workdir --debug classic image-definition.yaml
