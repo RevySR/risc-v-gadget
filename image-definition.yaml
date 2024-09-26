@@ -70,7 +70,11 @@ customization:
     make-dirs:
       - path: /etc/default/grub.d
         permissions: 0755
+      - path: /boot/efi
+        permissions: 0755
       - path: /etc/flash-kernel
+        permissions: 0755
+      - path: /etc/apt/preferences.d
         permissions: 0755
     copy-file:
       - destination: /etc/default/grub.d/zz_p550.cfg
