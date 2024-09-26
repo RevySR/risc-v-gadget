@@ -80,6 +80,8 @@ customization:
         source: flash-kernel/machine
       - destination: /tmp/customize.sh
         source: customize.sh
+      - destination: /etc/apt/preferences.d
+        source: pin_sifive_ppa
     execute:
       - path: /tmp/customize.sh
 artifacts:
