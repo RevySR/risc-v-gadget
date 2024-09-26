@@ -47,10 +47,11 @@ customization:
             password: ubuntu
             type: text
   extra-packages:
-    -
-      name: "flash-kernel"
-    -
-      name: "grub-efi-riscv64"
+    - name: "flash-kernel"
+    - name: "grub-efi-riscv64"
+    - name: "es-bmcd"
+    - name: "eswin-eic7x-gpu"
+    - name: "ubuntu-desktop"
   extra-snaps:
     - name: snapd
   fstab:
