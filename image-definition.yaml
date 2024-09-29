@@ -55,6 +55,20 @@ customization:
     - name: "es-bmcd"
     - name: "eswin-eic7x-gpu"
     - name: "ubuntu-desktop"
+    - name: "libegl-mesa0"
+    - name: "libegl1-mesa"
+    - name: "libgbm1"
+    - name: "libgl1-mesa-dri"
+    - name: "libgl1-mesa-glx"
+    - name: "libglapi-mesa"
+    - name: "libgles2-mesa"
+    - name: "libglx-mesa0"
+    - name: "libosmesa6"
+    - name: "libwayland-egl1-mesa"
+    - name: "mesa-opencl-icd"
+    - name: "mesa-va-drivers"
+    - name: "mesa-vdpau-drivers"
+    - name: "mesa-vulkan-drivers"
   extra-snaps:
     - name: snapd
   fstab:
