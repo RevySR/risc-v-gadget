@@ -46,6 +46,8 @@ customization:
           - name: ubuntu
             password: ubuntu
             type: text
+      runcmd:
+        - mkdir -p /etc/gdm3 && echo 'WaylandEnable=false' >> /etc/gdm3/custom.conf
   extra-packages:
     - name: "flash-kernel"
     - name: "grub-efi-riscv64"
