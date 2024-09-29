@@ -5,7 +5,7 @@ revision: 1
 architecture: riscv64
 series: noble
 class: preinstalled
-kernel: linux-eswin
+kernel: linux-premier
 gadget:
   url: "https://git.launchpad.net/~sifive-sandbox/+git/risc-v-gadget"
   type: "git"
