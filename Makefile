@@ -8,7 +8,6 @@ all:
 	make install/dtb
 	make install/grub
 	make meta
-	find .
 
 install/cidata:
 	mkdir -p $(DESTDIR)/cidata
@@ -27,17 +26,26 @@ install/dtb:
 	rm -rf build
 
 install/grub:
-	rm -rf build
-	mkdir build
-	# Monolithic images are not yet backported to Ubuntu 22.04.
-	# Oracular requires NX flag
-	# cd build && pull-lp-debs -a riscv64 grub2 '' oracular
-	cd build && wget http://snapshot.debian.org/archive/debian/20240716T023930Z/pool/main/g/grub2/grub-efi-riscv64-unsigned_2.12-5_riscv64.deb
-	cd build && dpkg -x grub-efi-riscv64-unsigned*.deb grub/
+	rm -rf build/
+	mkdir build/
+	cd build && pull-lp-debs -a riscv64 grub2 '' oracular
+	cd build && dpkg -x grub-efi-riscv64-bin*.deb grub/
+	cd build && grub-mkimage -O riscv64-efi -o grubriscv64.efi \
+	-p "/EFI/ubuntu" -d grub/usr/lib/grub/riscv64-efi \
+	all_video boot btrfs cat chain configfile cryptodisk echo efifwsetup \
+	efinet ext2 fat font gcry_arcfour gcry_blowfish gcry_camellia \
+	gcry_cast5 gcry_crc gcry_des gcry_dsa gcry_idea gcry_md4 gcry_md5 \
+	gcry_rfc2268 gcry_rijndael gcry_rmd160 gcry_rsa gcry_seed gcry_serpent \
+	gcry_sha1 gcry_sha256 gcry_sha512 gcry_tiger gcry_twofish \
+	gcry_whirlpool gettext gfxmenu gfxterm gfxterm_background gzio halt \
+	help hfsplus iso9660 jpeg keystatus linux loadenv loopback ls lsefi \
+	lsefimmap lsefisystab lssal luks lvm mdraid09 mdraid1x memdisk minicmd \
+	normal ntfs part_apple part_gpt part_msdos password_pbkdf2 png probe \
+	raid5rec raid6rec reboot regexp search search_fs_file search_fs_uuid \
+	search_label serial sleep smbios squash4 test tpm true video xfs zfs \
+	zfscrypt zfsinfo
 	mkdir -p $(DESTDIR)/grub
-	cp ./build/grub/usr/lib/grub/riscv64-efi/monolithic/grubriscv64.efi $(DESTDIR)/grub/
-	cp grub.cfg $(DESTDIR)/grub/
-	rm -rf build
+	cp ./build/grubriscv64.efi $(DESTDIR)/grub/
 
 meta:
 	mkdir -p $(DESTDIR)/meta
