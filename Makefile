@@ -26,6 +26,10 @@ install/dtb:
 	rm -rf build
 
 install/grub:
+	mkdir -p $(DESTDIR)/grub
+	cp grub/grubriscv64.efi $(DESTDIR)/grub/
+
+monolithic-grub:
 	rm -rf build/
 	mkdir build/
 	cd build && pull-lp-debs -a riscv64 grub2 '' oracular
@@ -46,8 +50,7 @@ install/grub:
 	raid5rec raid6rec reboot regexp search search_fs_file search_fs_uuid \
 	search_label serial sleep smbios squash4 test tpm true video xfs zfs \
 	zfscrypt zfsinfo
-	mkdir -p $(DESTDIR)/grub
-	cp ./build/grubriscv64.efi $(DESTDIR)/grub/
+	cp ./build/grubriscv64.efi grub/
 
 meta:
 	mkdir -p $(DESTDIR)/meta
