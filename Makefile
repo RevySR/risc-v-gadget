@@ -30,6 +30,8 @@ install/grub:
 	mkdir build/
 	cd build && pull-lp-debs -a riscv64 grub2 '' oracular
 	cd build && dpkg -x grub-efi-riscv64-bin*.deb grub/
+	# Exclude peimage when building a monolithic GRUB as it would require
+	# the NX flag in the PE/COFF header.
 	cd build && grub-mkimage -O riscv64-efi -o grubriscv64.efi \
 	-p "/EFI/ubuntu" -d grub/usr/lib/grub/riscv64-efi \
 	all_video boot btrfs cat chain configfile cryptodisk echo efifwsetup \
