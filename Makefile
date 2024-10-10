@@ -27,6 +27,7 @@ install/dtb:
 
 install/grub:
 	mkdir -p $(DESTDIR)/grub
+	cp grub/grub.cfg $(DESTDIR)/grub/
 	cp grub/grubriscv64.efi $(DESTDIR)/grub/
 
 monolithic-grub:
