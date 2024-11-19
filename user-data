@@ -10,4 +10,4 @@ runcmd:
   - grub-install
   - update-grub
   - rm -rf /boot/extlinux/
-  - mkdir -p /etc/gdm3 && echo 'WaylandEnable=false' >> /etc/gdm3/custom.conf
+  - sed -i 's|#[[:space:]]*WaylandEnable[[:space:]]*=.*|WaylandEnable=false|' /etc/gdm3/custom.conf
