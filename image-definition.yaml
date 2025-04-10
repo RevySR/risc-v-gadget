@@ -7,9 +7,9 @@ series: noble
 class: preinstalled
 kernel: linux-premier
 gadget:
-  url: "https://git.launchpad.net/~sifive-sandbox/+git/risc-v-gadget"
+  url: "https://github.com/RevySR/risc-v-gadget"
   type: "git"
-  branch: "p550"
+  branch: "ubuntu-p550"
 rootfs:
   archive: ubuntu
   sources-list-deb822: true
